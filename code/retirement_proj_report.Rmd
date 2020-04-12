@@ -1,5 +1,5 @@
 ---
-title: "Retirement Projection"
+title: "Retirement Projection Report"
 author: "Jeff Li"
 date: "12/29/2019"
 output: html_document
@@ -12,6 +12,9 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir='~/GitHub/Retirement_Planning')
 setwd("~/GitHub/Retirement_Planning")
 
+library(magrittr)
+library(lubridate)
+library(data.table)
 library(dplyr)
 library(ggplot2)
 library(lubridate)
@@ -26,8 +29,8 @@ options(scipen=999)
 ```{r initialization, echo=FALSE, include=FALSE}
 
 source('code/1_libraries_load.R')
-source('code/2_user_def_funcs_load.R')
-source('code/3_initial_inputs.R')
+source('code/2_initial_inputs.R')
+source('code/3_user_def_funcs_load.R')
 
 #Import s&p500 returns file
 sp_500_returns <- fread(sp_500_filepath, header=TRUE)
